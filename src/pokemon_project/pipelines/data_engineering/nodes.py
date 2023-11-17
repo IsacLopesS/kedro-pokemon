@@ -21,10 +21,18 @@ def calculate_number_of_abilities(df):
 
 def create_number_of_abilities_feature(df):
     """add abilitie feature column to dataframe"""
-    df2 = df.assign(
+    df = df.assign(
         number_of_abilities=df.apply(
             calculate_number_of_abilities,
             axis=1
         )
     )
-    return df2
+
+    #selecting numeric columns
+    against_cols = [col for col in df if col.startswith('against')]
+    numerical_starts_cols = ['base_total','attack','defense','hp','sp_attack','sp_defense',
+                             'speed', 'height_m','weight_kg', 'number_of_abilities']
+
+    cols_to_select = against_cols + numerical_starts_cols + ['type1']
+    df = df[cols_to_select]
+    return df

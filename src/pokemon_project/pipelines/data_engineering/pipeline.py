@@ -20,7 +20,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
         node(
                 func=create_number_of_abilities_feature,
-                inputs="pp_pokemon_dataset", 
+                inputs="encoded_pokemon_dataset", 
                 outputs="pokemon_features", 		
                 name="pokemon_features_node" 
             )
