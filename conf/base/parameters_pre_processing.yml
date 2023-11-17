@@ -4,4 +4,4 @@
 # Documentation for this file format can be found in "Parameters"
 # Link: https://docs.kedro.org/en/0.18.14/configuration/parameters.html
 
-selected_generation: 2
+selected_generation: [5,7]
